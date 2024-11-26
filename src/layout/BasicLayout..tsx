@@ -2,77 +2,61 @@ import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { MenuItem } from "../interfaces";
 import { getDataMenu } from "../service/pages/api";
+import { NavBar, Preloader, Sidebar, TopBar } from "../components";
+import HeaderForMobile from "../components/Mobile/Header";
 
 const BasicLayout = () => {
   const [itemMenu, setItemMenu] = useState<MenuItem[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const getItemMenu = async () => {
-    const resp = await getDataMenu();
-    console.log(resp);
+    try {
+      const resp = await getDataMenu();
+      setItemMenu(resp.data.data);
+      console.log(resp.data.data);
+    } catch (error) {
+      console.error("Error fetching menu data:", error);
+    }
   };
 
   useEffect(() => {
     getItemMenu();
   }, []);
 
+  useEffect(() => {
+    const loadData = async () => {
+      const token = localStorage.getItem("token");
+      console.log(token);
+      if (!token) {
+        // navigate("auth/login");
+        return;
+      } else {
+        try {
+          // const resp = await validate(token);
+        } catch (error) {
+          // navigate("auth/login");
+          return;
+        }
+        // }
+      }
+      setLoading(true);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setLoading(false);
+    };
+
+    loadData();
+  }, []);
+
+  if (loading) {
+    return <Preloader />;
+  }
+
   return (
-    <div className="drawer">
-      <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col">
-        {/* Navbar */}
-        <div className="navbar bg-base-300 w-full">
-          <div className="flex-none lg:hidden">
-            <label
-              htmlFor="my-drawer-3"
-              aria-label="open sidebar"
-              className="btn btn-square btn-ghost"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                className="inline-block h-6 w-6 stroke-current"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                ></path>
-              </svg>
-            </label>
-          </div>
-          <div className="mx-2 flex-1 px-2">Navbar Title</div>
-          <div className="hidden flex-none lg:block">
-            <ul className="menu menu-horizontal">
-              {/* Navbar menu content here */}
-              <li>
-                <a>Navbar Item 1</a>
-              </li>
-              <li>
-                <a>Navbar Item 2</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <Outlet />
-      </div>
-      <div className="drawer-side">
-        <label
-          htmlFor="my-drawer-3"
-          aria-label="close sidebar"
-          className="drawer-overlay"
-        ></label>
-        <ul className="menu bg-base-200 min-h-full w-80 p-4">
-          {/* Sidebar content here */}
-          <li>
-            <a>Sidebar Item 1</a>
-          </li>
-          <li>
-            <a>Sidebar Item 2</a>
-          </li>
-        </ul>
-      </div>
+    <div>
+      <TopBar />
+      <NavBar />
+      <HeaderForMobile />
+      <Sidebar />
     </div>
   );
 };
