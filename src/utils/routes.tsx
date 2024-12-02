@@ -3,7 +3,7 @@ import {
   RouteObject,
   RouterProvider,
 } from "react-router-dom";
-import BasicLayout from "../layout/BasicLayout.";
+import BasicLayout from "../layout/BasicLayout";
 import AuthLayout from "../layout/AuthLayout";
 import NoFoundPage from "../layout/BlankLayout";
 import HomePage from "../pages/home";

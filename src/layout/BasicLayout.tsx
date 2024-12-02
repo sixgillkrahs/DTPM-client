@@ -27,18 +27,18 @@ const BasicLayout = () => {
     const loadData = async () => {
       const token = localStorage.getItem("token");
       console.log(token);
-      if (!token) {
-        // navigate("auth/login");
-        return;
-      } else {
-        try {
-          // const resp = await validate(token);
-        } catch (error) {
-          // navigate("auth/login");
-          return;
-        }
-        // }
-      }
+      // if (!token) {
+      //   // navigate("auth/login");
+      //   return;
+      // } else {
+      //   try {
+      //     // const resp = await validate(token);
+      //   } catch (error) {
+      //     // navigate("auth/login");
+      //     return;
+      //   }
+      //   // }
+      // }
       setLoading(true);
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setLoading(false);
@@ -52,12 +52,13 @@ const BasicLayout = () => {
   }
 
   return (
-    <div>
+    <>
       <TopBar />
       <NavBar />
       <HeaderForMobile />
       <Sidebar />
-    </div>
+      <Outlet />
+    </>
   );
 };
 

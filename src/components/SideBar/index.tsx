@@ -1,89 +1,112 @@
+import monitor from "../../assets/imgs/template/monitor.svg";
+import mobile from "../../assets/imgs/template/mobile.svg";
+import game from "../../assets/imgs/template/game.svg";
+import clock from "../../assets/imgs/template/clock.svg";
+import airpod from "../../assets/imgs/template/airpod.svg";
+import mouse from "../../assets/imgs/template/mouse.svg";
+import musicPlay from "../../assets/imgs/template/music-play.svg";
+import bluetooth from "../../assets/imgs/template/bluetooth.svg";
+import clound from "../../assets/imgs/template/clound.svg";
+import electricity from "../../assets/imgs/template/electricity.svg";
+import cpu from "../../assets/imgs/template/cpu.svg";
+import driver from "../../assets/imgs/template/driver.svg";
+import devices from "../../assets/imgs/template/devices.svg";
+import lamp from "../../assets/imgs/template/lamp.svg";
+import airpods from "../../assets/imgs/template/airpods.svg";
+import { useState } from "react";
+
 const SideBar = () => {
+  const [hidden, isHidden] = useState<boolean>(false);
+  const handleOpen = () => {
+    isHidden(!hidden);
+  };
   return (
     <div className="sidebar-left">
-      <a className="btn btn-open" href="#"></a>
-      <ul className="menu-icons hidden">
-        <li>
-          <a href="javascript:void(0)">
-            <img src="assets/imgs/template/monitor.svg" alt="Ecom" />
-          </a>
-        </li>
-        <li>
-          <a href="javascript:void(0)">
-            <img src="assets/imgs/template/mobile.svg" alt="Ecom" />
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="assets/imgs/template/game.svg" alt="Ecom" />
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="assets/imgs/template/clock.svg" alt="Ecom" />
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="assets/imgs/template/airpod.svg" alt="Ecom" />
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="assets/imgs/template/airpods.svg" alt="Ecom" />
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="assets/imgs/template/mouse.svg" alt="Ecom" />
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="assets/imgs/template/music-play.svg" alt="Ecom" />
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="assets/imgs/template/bluetooth.svg" alt="Ecom" />
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="assets/imgs/template/clound.svg" alt="Ecom" />
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="assets/imgs/template/electricity.svg" alt="Ecom" />
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="assets/imgs/template/cpu.svg" alt="Ecom" />
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="assets/imgs/template/devices.svg" alt="Ecom" />
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="assets/imgs/template/driver.svg" alt="Ecom" />
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="assets/imgs/template/lamp.svg" alt="Ecom" />
-          </a>
-        </li>
-      </ul>
+      <a className="btn btn-open" onClick={handleOpen}></a>
+      {hidden && (
+        <ul className={hidden ? `menu-icons` : "menu-icons hidden"}>
+          <li>
+            <a href="javascript:void(0)">
+              <img src={monitor} alt="Ecom" />
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <img src={mobile} alt="Ecom" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src={game} alt="Ecom" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src={clock} alt="Ecom" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src={airpod} alt="Ecom" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src={airpod} alt="Ecom" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src={mouse} alt="Ecom" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src={musicPlay} alt="Ecom" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src={bluetooth} alt="Ecom" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src={clound} alt="Ecom" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src={electricity} alt="Ecom" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src={cpu} alt="Ecom" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src={devices} alt="Ecom" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src={driver} alt="Ecom" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src={lamp} alt="Ecom" />
+            </a>
+          </li>
+        </ul>
+      )}
       <ul className="menu-texts menu-close">
         <li className="has-children">
           <a href="shop-grid-2.html">
             <span className="img-link">
-              <img src="assets/imgs/template/monitor.svg" alt="Ecom" />
+              <img src={monitor} alt="Ecom" />
             </span>
             <span className="text-link">Computers &amp; Accessories</span>
           </a>
@@ -111,7 +134,7 @@ const SideBar = () => {
         <li className="has-children">
           <a href="#">
             <span className="img-link">
-              <img src="assets/imgs/template/mobile.svg" alt="Ecom" />
+              <img src={mobile} alt="Ecom" />
             </span>
             <span className="text-link">Cell Phones</span>
           </a>
@@ -163,7 +186,7 @@ const SideBar = () => {
         <li className="has-children">
           <a href="shop-grid.html">
             <span className="img-link">
-              <img src="assets/imgs/template/game.svg" alt="Ecom" />
+              <img src={game} alt="Ecom" />
             </span>
             <span className="text-link">Gaming Gatgets</span>
           </a>
@@ -191,7 +214,7 @@ const SideBar = () => {
         <li className="has-children">
           <a href="shop-grid.html">
             <span className="img-link">
-              <img src="assets/imgs/template/clock.svg" alt="Ecom" />
+              <img src={clock} alt="Ecom" />
             </span>
             <span className="text-link">Smart watches</span>
           </a>
@@ -219,7 +242,7 @@ const SideBar = () => {
         <li className="has-children">
           <a href="shop-grid.html">
             <span className="img-link">
-              <img src="assets/imgs/template/airpods.svg" alt="Ecom" />
+              <img src={airpods} alt="Ecom" />
             </span>
             <span className="text-link">Wired Headphone</span>
           </a>
@@ -244,7 +267,7 @@ const SideBar = () => {
         <li className="has-children">
           <a href="shop-grid.html">
             <span className="img-link">
-              <img src="assets/imgs/template/mouse.svg" alt="Ecom" />
+              <img src={mouse} alt="Ecom" />
             </span>
             <span className="text-link">Mouse &amp; Keyboard</span>
           </a>
@@ -269,7 +292,7 @@ const SideBar = () => {
         <li className="has-children">
           <a href="shop-grid.html">
             <span className="img-link">
-              <img src="assets/imgs/template/music-play.svg" alt="Ecom" />
+              <img src={musicPlay} alt="Ecom" />
             </span>
             <span className="text-link">Headphone</span>
           </a>
@@ -294,7 +317,7 @@ const SideBar = () => {
         <li className="has-children">
           <a href="shop-grid.html">
             <span className="img-link">
-              <img src="assets/imgs/template/bluetooth.svg" alt="Ecom" />
+              <img src={bluetooth} alt="Ecom" />
             </span>
             <span className="text-link">Bluetooth devices</span>
           </a>
@@ -319,7 +342,7 @@ const SideBar = () => {
         <li className="has-children">
           <a href="shop-grid.html">
             <span className="img-link">
-              <img src="assets/imgs/template/clound.svg" alt="Ecom" />
+              <img src={clound} alt="Ecom" />
             </span>
             <span className="text-link">Cloud Software</span>
           </a>
@@ -344,7 +367,7 @@ const SideBar = () => {
         <li className="has-children">
           <a href="shop-grid.html">
             <span className="img-link">
-              <img src="assets/imgs/template/electricity.svg" alt="Ecom" />
+              <img src={electricity} alt="Ecom" />
             </span>
             <span className="text-link">Electric accessories</span>
           </a>
@@ -369,7 +392,7 @@ const SideBar = () => {
         <li className="has-children">
           <a href="shop-grid.html">
             <span className="img-link">
-              <img src="assets/imgs/template/cpu.svg" alt="Ecom" />
+              <img src={cpu} alt="Ecom" />
             </span>
             <span className="text-link">Mainboard &amp; CPU</span>
           </a>
@@ -394,7 +417,7 @@ const SideBar = () => {
         <li className="has-children">
           <a href="shop-grid.html">
             <span className="img-link">
-              <img src="assets/imgs/template/devices.svg" alt="Ecom" />
+              <img src={devices} alt="Ecom" />
             </span>
             <span className="text-link">Desktop PC</span>
           </a>
@@ -416,7 +439,7 @@ const SideBar = () => {
         <li className="has-children">
           <a href="shop-grid.html">
             <span className="img-link">
-              <img src="assets/imgs/template/driver.svg" alt="Ecom" />
+              <img src={driver} alt="Ecom" />
             </span>
             <span className="text-link">Speaker</span>
           </a>
@@ -441,7 +464,7 @@ const SideBar = () => {
         <li className="has-children">
           <a href="shop-grid.html">
             <span className="img-link">
-              <img src="assets/imgs/template/airpod.svg" alt="Ecom" />
+              <img src={airpod} alt="Ecom" />
             </span>
             <span className="text-link">Bluetooth Headphone</span>
           </a>
@@ -466,7 +489,7 @@ const SideBar = () => {
         <li className="has-children">
           <a href="shop-grid.html">
             <span className="img-link">
-              <img src="assets/imgs/template/lamp.svg" alt="Ecom" />
+              <img src={lamp} alt="Ecom" />
             </span>
             <span className="text-link">Computer Decor</span>
           </a>

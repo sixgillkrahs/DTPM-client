@@ -1,0 +1,38 @@
+/*TYPOGRAPHY*/
+@use '../abstracts/variables';
+
+
+body {
+    color: variables.$color-brand-3;
+    font-family: variables.$font-dm-sans;
+    font-size: 14px;
+    line-height: 18px;
+    font-style: normal;
+    font-weight: 400;
+    position: relative;
+}
+.font-heading,
+.display-1,
+.display-2,
+.heading-lg,
+.heading-sm-1 {
+    font-family: variables.$font-dm-sans;
+    color: variables.$color-brand-3;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.page-content {
+    line-height: 1.25;
+    p   {
+        margin-bottom: 10px;
+    }
+    h5 {
+        margin-bottom: 15px;
+    }
+}
+a.text-brand-3 {
+    color: variables.$color-brand-3;
+    &:hover {
+        color: variables.$color-brand-1;
+    }
+}
